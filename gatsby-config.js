@@ -1,9 +1,10 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
 module.exports = {
   siteMetadata: {
-    title: "My Cooking Blog",
+    title: "Drupal Cooking Blog",
   },
   plugins: [
     {
@@ -27,4 +28,4 @@ module.exports = {
       },
     },
   ],
-};
+}; 
