@@ -4,33 +4,60 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const recipeTemplate = path.resolve(`src/recipeTemplate.js`)
+  const articleTemplate = path.resolve(`src/articleTemplate.js`)
 
   const result = await graphql(`
-  query {
-    Drupal {
-      nodeRecipes(first: 10, sortKey: CREATED_AT) {
-        nodes {
-          title
-          recipeInstruction {
-            value
-          }
-          mediaImage {
-            mediaImage {
-              url
+    query {
+      Drupal {
+        nodeRecipes(first: 10, sortKey: CREATED_AT) {
+          nodes {
+            title
+            recipeInstruction {
+              value
             }
+            mediaImage {
+              mediaImage {
+                url
+              }
+            }
+            created
+            path
           }
-          created
+        }
+        nodeArticles(first: 10) {
+          nodes {
+            title
+            mediaImage {
+              mediaImage {
+                url
+              }
+            }
+            body {
+              value
+            }
+            path
+          }
         }
       }
     }
-  }
   `)
 
   result.data.Drupal.nodeRecipes.nodes.forEach(node => {
-    const slug = node.title.toLowerCase().replace(/\s+/g, '-')
+    const slug = node.path
     createPage({
-      path: `/recipes/${slug}`,
+      path: `/recipes${slug}`,
       component: recipeTemplate,
+      context: {
+        slug: slug
+      },
+    })
+  })
+
+  result.data.Drupal.nodeArticles.nodes.forEach(node => {
+    const slug = node.path
+    createPage({
+      path: `/articles${slug}`,
+      component: articleTemplate,
       context: {
         slug: slug
       },

@@ -11,7 +11,7 @@ const RecipePage = ({ data }) => {
           data.Drupal.nodeRecipes.nodes.map(node => (
             <article key={node.title}>
               <h2>
-                <Link to={`/recipes/${node.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Link to={`/recipes${node.path}`}>
                   {node.title}
                 </Link>
               </h2>
@@ -39,6 +39,7 @@ const RecipePage = ({ data }) => {
               }
             }
             created
+            path
           }
         }
       }

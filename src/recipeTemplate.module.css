@@ -1,0 +1,24 @@
+
+.img{
+    width: 800px;
+}
+
+.recipe{
+    padding-left: 160px;
+    padding-right: 160px;
+    padding-bottom: 80px;
+}
+
+.basicInfo{
+    padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 40px;
+}

@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import Layout from '../pages/layout'
-import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../pages/seo'
 
 const IndexPage = () => {
