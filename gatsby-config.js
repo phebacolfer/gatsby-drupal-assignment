@@ -6,6 +6,7 @@ module.exports = {
   pathPrefix: "/gatsby-drupal-assignment",
   siteMetadata: {
     title: "Drupal Cooking Blog",
+    siteUrl: "https://phebacolfer.github.io/gatsby-drupal-assignment/"
   },
   plugins: [
     {
