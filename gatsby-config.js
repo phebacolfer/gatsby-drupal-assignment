@@ -3,6 +3,7 @@
  */
 
 module.exports = {
+  pathPrefix: "/gatsby-drupal-assignment",
   siteMetadata: {
     title: "Drupal Cooking Blog",
   },
